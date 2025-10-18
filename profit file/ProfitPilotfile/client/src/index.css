@@ -1,0 +1,712 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark theme colors exactly matching design reference */
+  --background: hsl(222, 47%, 11%);
+  --foreground: hsl(210, 40%, 98%);
+  --card: hsl(217, 33%, 17%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --popover: hsl(217, 33%, 17%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(158, 64%, 52%);
+  --secondary-foreground: hsl(222, 47%, 11%);
+  --muted: hsl(217, 33%, 17%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --accent: hsl(38, 92%, 50%);
+  --accent-foreground: hsl(222, 47%, 11%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 33%, 24%);
+  --input: hsl(217, 33%, 24%);
+  --ring: hsl(221, 83%, 53%);
+  --chart-1: hsl(221, 83%, 53%);
+  --chart-2: hsl(158, 64%, 52%);
+  --chart-3: hsl(38, 92%, 50%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(217, 33%, 17%);
+  --sidebar-foreground: hsl(210, 40%, 98%);
+  --sidebar-primary: hsl(221, 83%, 53%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(217, 33%, 24%);
+  --sidebar-accent-foreground: hsl(221, 83%, 53%);
+  --sidebar-border: hsl(217, 33%, 24%);
+  --sidebar-ring: hsl(221, 83%, 53%);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Georgia', serif;
+  --font-mono: 'Menlo', monospace;
+  --radius: 0.75rem;
+  --shadow-2xs: 0px 2px 0px 0px hsl(221, 83%, 53% / 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(221, 83%, 53% / 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(221, 83%, 53% / 0.00), 0px 1px 2px -1px hsl(221, 83%, 53% / 0.00);
+  --shadow: 0px 2px 0px 0px hsl(221, 83%, 53% / 0.00), 0px 1px 2px -1px hsl(221, 83%, 53% / 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(221, 83%, 53% / 0.00), 0px 2px 4px -1px hsl(221, 83%, 53% / 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(221, 83%, 53% / 0.00), 0px 4px 6px -1px hsl(221, 83%, 53% / 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(221, 83%, 53% / 0.00), 0px 8px 10px -1px hsl(221, 83%, 53% / 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(221, 83%, 53% / 0.00);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.light {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(210, 25%, 7.8431%);
+  --card: hsl(180, 6.6667%, 97.0588%);
+  --card-foreground: hsl(210, 25%, 7.8431%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(210, 25%, 7.8431%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(158, 64%, 52%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --muted: hsl(240, 1.9608%, 90%);
+  --muted-foreground: hsl(210, 25%, 7.8431%);
+  --accent: hsl(38, 92%, 50%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(201.4286, 30.4348%, 90.9804%);
+  --input: hsl(200, 23.0769%, 97.4510%);
+  --ring: hsl(221, 83%, 53%);
+  --chart-1: hsl(221, 83%, 53%);
+  --chart-2: hsl(158, 64%, 52%);
+  --chart-3: hsl(38, 92%, 50%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(180, 6.6667%, 97.0588%);
+  --sidebar-foreground: hsl(210, 25%, 7.8431%);
+  --sidebar-primary: hsl(221, 83%, 53%);
+  --sidebar-primary-foreground: hsl(0, 0%, 100%);
+  --sidebar-accent: hsl(211.5789, 51.3514%, 92.7451%);
+  --sidebar-accent-foreground: hsl(221, 83%, 53%);
+  --sidebar-border: hsl(205.0000, 25.0000%, 90.5882%);
+  --sidebar-ring: hsl(221, 83%, 53%);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Georgia', serif;
+  --font-mono: 'Menlo', monospace;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+  }
+}
+
+/* Custom gradient utility for text - matching design reference */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass card effect exactly from design reference */
+.glass-card {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Float animation from design reference */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+/* Transition utilities */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Hover scale effect from design */
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Progress bar styling to match design exactly */
+.progress-bar {
+  height: 8px;
+  border-radius: 9999px;
+  background: hsl(var(--muted));
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  transition: width 0.5s ease;
+}
+
+/* Custom scrollbar styling from design reference */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Loading shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Card hover effects matching design */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Button gradient styling exactly from design */
+.btn-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Investment plan card styles from design reference */
+.plan-card-primary {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.05));
+  border-color: hsl(var(--primary) / 0.2);
+}
+
+.plan-card-secondary {
+  background: linear-gradient(135deg, hsl(var(--secondary) / 0.1), hsl(var(--secondary) / 0.05));
+  border-color: hsl(var(--secondary) / 0.2);
+}
+
+/* Stats card animations */
+.stats-card {
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional animations for enhanced UX */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-fade-out {
+  animation: fade-out 0.3s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out;
+}
+
+/* Backdrop blur utilities */
+.backdrop-blur-xs {
+  backdrop-filter: blur(2px);
+}
+
+/* Glass morphism effects from design */
+.glass-morphism {
+  background: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Investment specific styling */
+.investment-gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.05));
+}
+
+.investment-gradient-secondary {
+  background: linear-gradient(135deg, hsl(var(--secondary) / 0.1), hsl(var(--secondary) / 0.05));
+}
+
+/* Status indicators */
+.status-pending {
+  color: hsl(var(--accent));
+}
+
+.status-completed {
+  color: hsl(var(--secondary));
+}
+
+.status-failed {
+  color: hsl(var(--destructive));
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  .gradient-text {
+    background-size: 100% 100%;
+  }
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Loading states */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Transaction type styling */
+.transaction-deposit {
+  color: hsl(var(--secondary));
+}
+
+.transaction-withdrawal {
+  color: hsl(var(--primary));
+}
+
+.transaction-profit {
+  color: hsl(var(--accent));
+}
+
+/* Dashboard specific styles */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Investment cards grid */
+.investment-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Form styling improvements */
+.form-field {
+  transition: all 0.2s ease;
+}
+
+.form-field:focus-within {
+  transform: translateY(-1px);
+}
+
+/* Button states */
+.btn-loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Notification styles */
+.notification-success {
+  background: linear-gradient(135deg, hsl(var(--secondary) / 0.1), hsl(var(--secondary) / 0.05));
+  border-left: 4px solid hsl(var(--secondary));
+}
+
+.notification-error {
+  background: linear-gradient(135deg, hsl(var(--destructive) / 0.1), hsl(var(--destructive) / 0.05));
+  border-left: 4px solid hsl(var(--destructive));
+}
+
+.notification-warning {
+  background: linear-gradient(135deg, hsl(var(--accent) / 0.1), hsl(var(--accent) / 0.05));
+  border-left: 4px solid hsl(var(--accent));
+}
+
+/* Specific design reference styling for investment platform */
+.landing-background-decoration {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.landing-background-decoration::before {
+  content: '';
+  position: absolute;
+  top: 5rem;
+  left: 2.5rem;
+  width: 18rem;
+  height: 18rem;
+  background: hsl(var(--primary) / 0.1);
+  border-radius: 50%;
+  filter: blur(3rem);
+}
+
+.landing-background-decoration::after {
+  content: '';
+  position: absolute;
+  bottom: 5rem;
+  right: 2.5rem;
+  width: 24rem;
+  height: 24rem;
+  background: hsl(var(--secondary) / 0.1);
+  border-radius: 50%;
+  filter: blur(3rem);
+}
+
+/* Authentication form styling */
+.auth-form-container {
+  background: rgba(hsl(var(--card)), 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border));
+}
+
+/* Investment plan specific gradients */
+.weekly-plan-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.05));
+  border: 1px solid hsl(var(--primary) / 0.2);
+}
+
+.monthly-plan-gradient {
+  background: linear-gradient(135deg, hsl(var(--secondary) / 0.1), hsl(var(--secondary) / 0.05));
+  border: 1px solid hsl(var(--secondary) / 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.monthly-plan-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  background: hsl(var(--secondary) / 0.1);
+  border-radius: 50%;
+  filter: blur(3rem);
+}
+
+/* Referral program styling */
+.referral-gradient {
+  background: linear-gradient(135deg, hsl(280, 100%, 70% / 0.1), hsl(320, 100%, 70% / 0.1));
+  border: 1px solid hsl(280, 100%, 70% / 0.2);
+}
+
+/* Achievement badge styling */
+.achievement-gradient {
+  background: linear-gradient(135deg, hsl(var(--accent) / 0.1), hsl(var(--accent) / 0.05));
+  border: 1px solid hsl(var(--accent) / 0.2);
+}
+
+/* Trust indicators */
+.trust-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.trust-indicators .trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Navigation header backdrop blur */
+.nav-header {
+  background: hsl(var(--card) / 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+/* Profile menu dropdown */
+.profile-dropdown {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Wallet connection card */
+.wallet-connection-card {
+  background: linear-gradient(135deg, hsl(var(--accent) / 0.1), hsl(var(--accent) / 0.05));
+  border: 1px solid hsl(var(--accent) / 0.2);
+}
+
+/* Transaction item hover */
+.transaction-item:hover {
+  background: hsl(var(--muted) / 0.5);
+  transition: background-color 0.2s ease;
+}
+
+/* Investment progress bar */
+.investment-progress {
+  background: hsl(var(--muted));
+  border-radius: 9999px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.investment-progress-fill {
+  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  height: 100%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* FAQ accordion animation */
+.faq-chevron {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+/* Footer styling */
+.footer-gradient {
+  background: hsl(var(--card));
+  border-top: 1px solid hsl(var(--border));
+}
+
+/* Social media icons hover */
+.social-icon {
+  transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  transform: translateY(-2px);
+}
+
+/* Success indicators for security features */
+.security-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: hsl(var(--secondary));
+}
+
+/* Investment card badges */
+.investment-badge-popular {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.investment-badge-best-value {
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+/* Profit calculator results */
+.calculator-results {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+  border: 1px solid hsl(var(--primary) / 0.2);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+/* Investment modal styling */
+.investment-modal {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Terms page warning box */
+.terms-warning {
+  background: linear-gradient(135deg, hsl(45, 100%, 95%), hsl(35, 100%, 95%));
+  border: 1px solid hsl(45, 100%, 80%);
+  color: hsl(35, 100%, 25%);
+}
+
+.dark .terms-warning {
+  background: linear-gradient(135deg, hsl(45, 100%, 10% / 0.2), hsl(35, 100%, 10% / 0.2));
+  border: 1px solid hsl(45, 100%, 20%);
+  color: hsl(45, 100%, 80%);
+}
+
+/* Loading skeleton animation */
+.skeleton {
+  background: linear-gradient(90deg, hsl(var(--muted)), hsl(var(--muted) / 0.8), hsl(var(--muted)));
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .investment-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .landing-background-decoration::before,
+  .landing-background-decoration::after {
+    display: none;
+  }
+}
+
+/* Print styles for terms page */
+@media print {
+  .print\\:hidden {
+    display: none !important;
+  }
+  
+  body {
+    color: black;
+    background: white;
+  }
+  
+  .gradient-text {
+    -webkit-text-fill-color: initial;
+    background: none;
+    color: black;
+  }
+}
